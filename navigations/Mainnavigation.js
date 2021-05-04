@@ -20,6 +20,14 @@ import Mainmapsecnavigation from "../navigations/Mainmapsecnavigation";
 
 /**
 |--------------------------------------------------
+| Chatbot import for the application
+|--------------------------------------------------
+*/
+
+import ChatFeature from "../screens/chatbotsection/ChatFeature";
+
+/**
+|--------------------------------------------------
 | Import for notifications for the list
 |--------------------------------------------------
 */
@@ -91,6 +99,20 @@ const Mainnavigation = () => {
 							/>
 							<Listnotification />
 						</View>
+					),
+				}}
+			/>
+			<Tab.Screen
+				name="FAQ bot"
+				component={ChatFeature}
+				options={{
+					tabBarIcon: ({ colour }) => (
+						<Icon
+							name="robot"
+							style={{ position: "relative" }}
+							color={colour}
+							size={30}
+						/>
 					),
 				}}
 			/>

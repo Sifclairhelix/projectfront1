@@ -13,6 +13,12 @@ import Listcartaccept from "../screens/listcartsection/orderonline/Listcartaccep
 
 const Tab = createMaterialTopTabNavigator();
 
+/**
+|--------------------------------------------------
+| Pay attention to the navigation names cause they are used for props.navigation.navigate("Pay")
+|--------------------------------------------------
+*/
+
 function MyTabs() {
 	return (
 		<Tab.Navigator>

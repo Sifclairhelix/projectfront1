@@ -20,10 +20,15 @@ var { width, height } = Dimensions.get("window");
 |--------------------------------------------------
 */
 
-const ListContainer = () => {
+const ListContainer = (props) => {
 	return (
 		<ScrollView contentContainerStyle={styles.container}>
-			<Text style={styles.title}>{props.title}</Text>
+			{/* <Text style={styles.title}>{props.title}</Text> */}
+			{/**
+			|--------------------------------------------------
+			| Not really sure about the props.children
+			|--------------------------------------------------
+			*/}
 			{props.children}
 		</ScrollView>
 	);
@@ -41,7 +46,8 @@ const styles = StyleSheet.create({
 		marginBottom: 400,
 		width: width,
 		justifyContent: "center",
-		alignContent: "center",
+		// alignContent: "center",
+		alignItems: "center",
 	},
 	title: {
 		fontSize: 30,

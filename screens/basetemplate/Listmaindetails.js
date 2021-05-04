@@ -32,45 +32,45 @@ const Listmaindetails = (props) => {
 		<TextInput
 			style={styles.input}
 			placeholder={props.placeholder}
+			name={props.name}
+			id={props.id}
 			value={props.value}
 			autoCorrect={props.autoCorrect}
 			onChangeText={props.onChangeText}
 			onFocus={props.onFocus}
 			secureTextEntry={props.secureTextEntry}
 			keyboardType={props.keyboardType}
-			name={props.name}
-			id={props.id}
 		></TextInput>
 	);
 };
 
 /**
 |--------------------------------------------------
-| The stylesheet goes here but we need to change it later
+| The stylesheet goes here but we need to change the variables and stuff later
 |--------------------------------------------------
 */
 
 const styles = StyleSheet.create({
-	container: {
-		marginTop: 30,
-		marginBottom: 400,
-		width: width,
-		justifyContent: "center",
-		alignContent: "center",
-	},
+	// container: {
+	// 	marginTop: 30,
+	// 	marginBottom: 400,
+	// 	width: width,
+	// 	justifyContent: "center",
+	// 	alignContent: "center",
+	// },
 	input: {
 		width: "80%",
 		height: 60,
 		backgroundColor: "grey",
 		margin: 10,
 		borderRadius: 20,
-		padding: 10,
+		padding: 20,
 		borderWidth: 2,
 		borderColor: "black",
 	},
-	title: {
-		fontSize: 30,
-	},
+	// title: {
+	// 	fontSize: 30,
+	// },
 });
 
 export default Listmaindetails;
