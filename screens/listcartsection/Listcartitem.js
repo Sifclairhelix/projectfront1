@@ -44,6 +44,7 @@ const Listcartitem = (props) => {
 		<ListItem style={styles.listItem} key={Math.random()} avatar>
 			<Left>
 				<Thumbnail
+					style={styles.thumbnailStyle}
 					source={{
 						uri: data.image
 							? data.image
@@ -76,9 +77,14 @@ const styles = StyleSheet.create({
 		justifyContent: "center",
 	},
 	body: {
-		margin: 10,
+		margin: 6,
 		alignItems: "center",
 		flexDirection: "row",
+	},
+	thumbnailStyle: {
+		height: 50,
+		width: 50,
+		borderRadius: 1,
 	},
 });
 

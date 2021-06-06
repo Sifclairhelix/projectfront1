@@ -26,7 +26,11 @@ import { Badge, Text, ListItem } from "native-base";
 const Mainfiltercategory = (props) => {
 	return (
 		<ScrollView horizontal={true} style={styles.scrollthing}>
-			<ListItem style={{ margin: 0, padding: 0, borderRadius: 0 }}>
+			<ListItem
+				style={
+					styles.styleForList /*{ margin: 0, padding: 0, borderRadius: 0 }*/
+				}
+			>
 				<TouchableOpacity
 					key={1}
 					/**
@@ -45,14 +49,21 @@ const Mainfiltercategory = (props) => {
 						style={[
 							styles.center,
 							{ margin: 5 },
-							props.badgeActive == -1 ? styles.active : styles.inactive,
+							props.badgeActive == -1
+								? styles.badgeActive
+								: styles.badgeInactive,
 						]}
 					>
-						<Text style={{ color: "white" }}>All</Text>
+						<Text style={styles.badgeAllText}>All</Text>
 					</Badge>
 				</TouchableOpacity>
 				{props.productCategories.map((item) => (
 					<TouchableOpacity
+						/**
+						|--------------------------------------------------
+						| This orginally is item._id.$oid but when getting data it is item._id
+						|--------------------------------------------------
+						*/
 						key={item._id}
 						/**
 						 * We will have an onPress event when we pass props props
@@ -60,10 +71,11 @@ const Mainfiltercategory = (props) => {
 						onPress={() => {
 							/**
 							|--------------------------------------------------
-							| props.Mainfiltercategory(item._id.$oid), this will change into this i guess props.Mainfiltercategory(item._id) not now but later 
+							| props.Mainfiltercategory(item._id.$oid), this will change into this i guess props.Mainfiltercategory(item._id) not now but later
+							| Here we have a function where we change the  props.Mainfiltercategory(item._id.$oid), to props.Mainfiltercategory(item._id),
 							|--------------------------------------------------
 							*/
-							props.Mainfiltercategory(item._id.$oid),
+							props.Mainfiltercategory(item._id),
 								props.setBadgeActive(props.productCategories.indexOf(item));
 						}}
 					>
@@ -74,14 +86,14 @@ const Mainfiltercategory = (props) => {
                     |--------------------------------------------------
                     */
 							style={[
-								styles.center,
-								{ margin: 5 },
+								styles.badgeCenterStruc,
+								/*{ margin: 5 },*/
 								props.badgeActive == props.productCategories.indexOf(item)
-									? styles.active
-									: styles.inactive,
+									? styles.badgeActive
+									: styles.badgeInactive,
 							]}
 						>
-							<Text style={{ color: "white" }}>{item.name}</Text>
+							<Text style={styles.badgeIntext}>{item.name}</Text>
 						</Badge>
 					</TouchableOpacity>
 				))}
@@ -97,18 +109,34 @@ const Mainfiltercategory = (props) => {
 */
 
 const styles = StyleSheet.create({
-	center: {
+	badgeCenterStruc: {
 		justifyContent: "center",
 		alignItems: "center",
+		margin: 5.5,
+	},
+	styleForList: {
+		margin: 0,
+		padding: 0,
+		borderRadius: 0,
+	},
+	badgeAllText: {
+		color: "#ffffff",
+		fontStyle: "normal",
+	},
+	badgeIntext: {
+		color: "#ffffff",
+		fontStyle: "normal",
 	},
 	scrollthing: {
 		backgroundColor: "#f2f2f2",
 	},
-	active: {
-		backgroundColor: "#03bafc",
+	badgeActive: {
+		backgroundColor: "#00609f",
+		borderRadius: 10,
 	},
-	inactive: {
-		backgroundColor: "#a0e1eb",
+	badgeInactive: {
+		backgroundColor: "#ae9b89",
+		borderRadius: 2,
 	},
 });
 

@@ -40,7 +40,7 @@ const MainProductcard = (props) => {
 	const { name, price, image, brand, countInStock } = props;
 
 	return (
-		<View style={styles.container}>
+		<View style={styles.homeScreenProContainer}>
 			{/* <Text>Main Product Card</Text> */}
 			<Image
 				/**
@@ -50,19 +50,19 @@ const MainProductcard = (props) => {
                 |--------------------------------------------------
                 */
 				resizeMode="contain"
-				style={styles.image}
+				style={styles.imageStructure}
 				source={{
 					uri: image
 						? image
 						: "https://base.imgix.net/files/base/ebm/mhlnews/image/2019/03/mhlnews_4187_out_stock_1.png?auto=format&fit=crop&h=432&w=768",
 				}}
 			/>
-			<View style={styles.card} />
-			<Text style={styles.title}>
+			<View style={styles.homeScreenCard} />
+			<Text style={styles.homeScreenTitle}>
 				{name.length > 15 ? name.substring(0, 16 - 3) + "..." : name}
 			</Text>
-			<Text style={styles.price}>£{price}</Text>
-			<Text>{brand}</Text>
+			<Text style={styles.homeScreenPrice}>£{price}</Text>
+			<Text style={styles.homeScreenBrand}>{brand}</Text>
 			{countInStock > 0 ? (
 				<View
 					/**
@@ -76,6 +76,7 @@ const MainProductcard = (props) => {
 					<Button
 						title={" ✔ Select"}
 						color={"grey"}
+						touchSoundDisabled={false}
 						onPress={() => {
 							props.addItemToList(props);
 						}}
@@ -127,38 +128,46 @@ const mapDispatchToProps = (dispatch) => {
 */
 
 const styles = StyleSheet.create({
-	container: {
-		width: width / 2 - 20,
-		height: width / 1.7,
-		padding: 10,
+	homeScreenProContainer: {
+		width: width / 2 - 10,
+		height: width / 1.6,
+		padding: 8,
 		borderRadius: 10,
 		marginTop: 55,
 		marginBottom: 5,
-		marginLeft: 10,
+		marginLeft: 5,
 		alignItems: "center",
-		elevation: 8,
+		elevation: 10,
 		backgroundColor: "white",
 	},
-	image: {
-		width: width / 2 - 20 - 10,
-		height: width / 2 - 20 - 30,
+	imageStructure: {
+		borderRadius: 60,
+		width: width / 2 - 20 - 3,
+		height: width / 2 - 20 - 20,
 		backgroundColor: "transparent",
 		position: "absolute",
-		top: -45,
+		top: -40,
 	},
-	card: {
-		marginBottom: 10,
-		height: width / 2 - 20 - 90,
+	homeScreenCard: {
+		// marginBottom: 12,
+		height: width / 2 - 20 - 100,
 		backgroundColor: "transparent",
 		width: width / 2 - 20 - 10,
 	},
-	title: {
+	homeScreenTitle: {
 		fontWeight: "bold",
-		fontSize: 14,
+		fontSize: 20,
 		textAlign: "center",
 	},
-	price: {
-		fontSize: 20,
+	homeScreenBrand: {
+		fontSize: 15,
+		textAlign: "center",
+		marginBottom: 10,
+		marginTop: 10,
+		color: "#6905ff",
+	},
+	homeScreenPrice: {
+		fontSize: 18,
 		color: "black",
 		marginTop: 10,
 	},

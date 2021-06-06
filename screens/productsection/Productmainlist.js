@@ -46,7 +46,7 @@ const Productmainlist = (props) => {
 			| we pass to Product deatail item which is the name and we pass the prop {item} = props into it
 			|--------------------------------------------------
 			*/
-			style={{ width: "50%" }}
+			style={styles.touchSize /*{ width: "50%" }*/}
 			onPress={() =>
 				props.navigation.navigate("Product Detail", { item: item })
 			}
@@ -56,7 +56,9 @@ const Productmainlist = (props) => {
             | pass the MainProductcard
             |--------------------------------------------------
             */
-				style={{ width: width / 2, backgroundColor: "white" }}
+				style={
+					styles.productCardView /*{ width: width / 2, backgroundColor: "white" }*/
+				}
 			>
 				<MainProductcard {...item} />
 			</View>
@@ -72,6 +74,13 @@ const Productmainlist = (props) => {
 const styles = StyleSheet.create({
 	mainstyle: {
 		width: "50%",
+	},
+	touchSize: {
+		width: "50%",
+	},
+	productCardView: {
+		width: width / 2,
+		backgroundColor: "white",
 	},
 });
 

@@ -13,8 +13,8 @@ const Listnotification = (props) => {
 	return (
 		<>
 			{props.listCartItems.length ? (
-				<Badge style={styles.badge}>
-					<Text style={styles.text}>{props.listCartItems.length}</Text>
+				<Badge style={styles.badgeStructure}>
+					<Text style={styles.badgeText}>{props.listCartItems.length}</Text>
 				</Badge>
 			) : null}
 		</>
@@ -47,19 +47,21 @@ const mapStateToProps = (state) => {
 */
 
 const styles = StyleSheet.create({
-	badge: {
-		width: 25,
+	badgeStructure: {
+		height: 20,
+		width: 20,
 		position: "absolute",
 		flex: 1,
 		justifyContent: "center",
 		alignItems: "center",
 		alignContent: "center",
-		top: -4,
-		right: -15,
+		top: 0,
+		right: -16,
+		borderRadius: 50,
 	},
-	text: {
-		fontSize: 12,
-		width: 100,
+	badgeText: {
+		fontSize: 14,
+		width: 120,
 		fontWeight: "bold",
 	},
 });

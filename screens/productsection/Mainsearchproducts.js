@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { View, StyleSheet, Dimensions } from "react-native";
-import { Left, Body, Content, Thumbnail, ListItem, Text } from "native-base";
+import {
+	Left,
+	Body,
+	Content,
+	Thumbnail,
+	ListItem,
+	Text,
+	Right,
+} from "native-base";
 
 /**
 |--------------------------------------------------
@@ -21,24 +29,26 @@ const Mainsearchproducts = (props) => {
 	const { mainProductsFiltered } = props;
 
 	return (
-		<Content style={{ width: width }}>
+		<Content style={styles.contentSize /*{ width: width }*/}>
 			{mainProductsFiltered.length > 0 ? (
 				mainProductsFiltered.map((item) => (
 					<ListItem
 						/**
                 |--------------------------------------------------
                 | will have onpress for navigation, this is for clicking on search to take use to the image
+				| item._id.$oid changing it to item._id just to check if somethign is wrong
                 |--------------------------------------------------
                 */
 
 						onPress={() => {
 							props.navigation.navigate("Product Detail", { item: item });
 						}}
-						key={item._id.$oid}
+						key={item._id}
 						avatar
 					>
 						<Left>
 							<Thumbnail
+								style={styles.thumbnailStyle}
 								source={{
 									/**
                                     |--------------------------------------------------
@@ -52,15 +62,17 @@ const Mainsearchproducts = (props) => {
 								}}
 							/>
 						</Left>
+
 						<Body>
-							<Text>{item.name}</Text>
+							<Text style={styles.searchItemName}>{item.name}</Text>
+							<Text>Store: {item.brand}</Text>
 							<Text note>{item.description}</Text>
 						</Body>
 					</ListItem>
 				))
 			) : (
-				<View style={styles.center}>
-					<Text style={{ alignSelf: "center" }}>
+				<View style={styles.searchBarCenter}>
+					<Text style={styles.errorResponse /*{ alignSelf: "center" }*/}>
 						There was no products found for query
 					</Text>
 				</View>
@@ -77,9 +89,23 @@ const Mainsearchproducts = (props) => {
 */
 
 const styles = StyleSheet.create({
-	center: {
+	searchBarCenter: {
 		justifyContent: "center",
 		alignItems: "center",
+	},
+	errorResponse: {
+		alignSelf: "center",
+	},
+	searchItemName: {
+		fontWeight: "bold",
+	},
+	contentSize: {
+		width: width,
+	},
+	thumbnailStyle: {
+		height: 50,
+		width: 50,
+		borderRadius: 2,
 	},
 });
 

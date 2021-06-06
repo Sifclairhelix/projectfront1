@@ -19,7 +19,7 @@ import {
 |--------------------------------------------------
 */
 
-var { width, height } = Dimensions.get("window");
+// var { width, height } = Dimensions.get("window");
 
 /**
 |--------------------------------------------------
@@ -27,22 +27,22 @@ var { width, height } = Dimensions.get("window");
 |--------------------------------------------------
 */
 
-const Listmaindetails = (props) => {
-	return (
-		<TextInput
-			style={styles.input}
-			placeholder={props.placeholder}
-			name={props.name}
-			id={props.id}
-			value={props.value}
-			autoCorrect={props.autoCorrect}
-			onChangeText={props.onChangeText}
-			onFocus={props.onFocus}
-			secureTextEntry={props.secureTextEntry}
-			keyboardType={props.keyboardType}
-		></TextInput>
-	);
-};
+// const Listmaindetails = (props) => {
+// 	return (
+// 		<TextInput
+// 			style={styles.input}
+// 			placeholder={props.placeholder}
+// 			name={props.name}
+// 			id={props.id}
+// 			value={props.value}
+// 			autoCorrect={props.autoCorrect}
+// 			onChangeText={props.onChangeText}
+// 			onFocus={props.onFocus}
+// 			secureTextEntry={props.secureTextEntry}
+// 			keyboardType={props.keyboardType}
+// 		></TextInput>
+// 	);
+// };
 
 /**
 |--------------------------------------------------
@@ -50,27 +50,27 @@ const Listmaindetails = (props) => {
 |--------------------------------------------------
 */
 
-const styles = StyleSheet.create({
-	// container: {
-	// 	marginTop: 30,
-	// 	marginBottom: 400,
-	// 	width: width,
-	// 	justifyContent: "center",
-	// 	alignContent: "center",
-	// },
-	input: {
-		width: "80%",
-		height: 60,
-		backgroundColor: "grey",
-		margin: 10,
-		borderRadius: 20,
-		padding: 20,
-		borderWidth: 2,
-		borderColor: "black",
-	},
-	// title: {
-	// 	fontSize: 30,
-	// },
-});
+// const styles = StyleSheet.create({
+// 	// container: {
+// 	// 	marginTop: 30,
+// 	// 	marginBottom: 400,
+// 	// 	width: width,
+// 	// 	justifyContent: "center",
+// 	// 	alignContent: "center",
+// 	// },
+// 	input: {
+// 		width: "80%",
+// 		height: 60,
+// 		backgroundColor: "grey",
+// 		margin: 10,
+// 		borderRadius: 20,
+// 		padding: 20,
+// 		borderWidth: 2,
+// 		borderColor: "black",
+// 	},
+// 	// title: {
+// 	// 	fontSize: 30,
+// 	// },
+// });
 
-export default Listmaindetails;
+// export default Listmaindetails;

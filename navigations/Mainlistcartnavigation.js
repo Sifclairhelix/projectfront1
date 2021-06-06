@@ -31,13 +31,13 @@ function MyStack() {
 					headerShown: false,
 				}}
 			/>
-			<Stack.Screen
+			{/* <Stack.Screen
 				name="Checkout"
 				component={Orderchecknavigation}
 				options={{
 					headerShown: false,
 				}}
-			/>
+			/> */}
 		</Stack.Navigator>
 	);
 }

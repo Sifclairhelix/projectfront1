@@ -3,16 +3,16 @@
 | Change structure of import, this will have stuff which is the details in the form, this is basically the template for the order online page
 |--------------------------------------------------
 */
-import React from "react";
-import { Scroll, Dimensions, StyleSheet, Text, ScrollView } from "react-native";
+// import React from "react";
+// import { Scroll, Dimensions, StyleSheet, Text, ScrollView } from "react-native";
 
-/**
-|--------------------------------------------------
-| need dimensions of the window
-|--------------------------------------------------
-*/
+// /**
+// |--------------------------------------------------
+// | need dimensions of the window
+// |--------------------------------------------------
+// */
 
-var { width, height } = Dimensions.get("window");
+// var { width, height } = Dimensions.get("window");
 
 /**
 |--------------------------------------------------
@@ -20,19 +20,19 @@ var { width, height } = Dimensions.get("window");
 |--------------------------------------------------
 */
 
-const ListContainer = (props) => {
-	return (
-		<ScrollView contentContainerStyle={styles.container}>
-			{/* <Text style={styles.title}>{props.title}</Text> */}
-			{/**
-			|--------------------------------------------------
-			| Not really sure about the props.children
-			|--------------------------------------------------
-			*/}
-			{props.children}
-		</ScrollView>
-	);
-};
+// const ListContainer = (props) => {
+// 	return (
+// 		<ScrollView contentContainerStyle={styles.container}>
+// 			{/* <Text style={styles.title}>{props.title}</Text> */}
+// 			{/**
+// 			|--------------------------------------------------
+// 			| Not really sure about the props.children
+// 			|--------------------------------------------------
+// 			*/}
+// 			{props.children}
+// 		</ScrollView>
+// 	);
+// };
 
 /**
 |--------------------------------------------------
@@ -40,18 +40,18 @@ const ListContainer = (props) => {
 |--------------------------------------------------
 */
 
-const styles = StyleSheet.create({
-	container: {
-		marginTop: 30,
-		marginBottom: 400,
-		width: width,
-		justifyContent: "center",
-		// alignContent: "center",
-		alignItems: "center",
-	},
-	title: {
-		fontSize: 30,
-	},
-});
+// const styles = StyleSheet.create({
+// 	container: {
+// 		marginTop: 30,
+// 		marginBottom: 400,
+// 		width: width,
+// 		justifyContent: "center",
+// 		// alignContent: "center",
+// 		alignItems: "center",
+// 	},
+// 	title: {
+// 		fontSize: 30,
+// 	},
+// });
 
-export default ListContainer;
+// export default ListContainer;

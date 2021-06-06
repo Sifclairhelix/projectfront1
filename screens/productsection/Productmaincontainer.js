@@ -16,6 +16,15 @@ import { Header, Item, Icon, Input, Text, Container } from "native-base";
 
 /**
 |--------------------------------------------------
+| import baseURL
+|--------------------------------------------------
+*/
+
+import baseURL from "../../assets/connection/baseURL";
+import axios from "axios";
+
+/**
+|--------------------------------------------------
 | Imports section for the Productmain container
 |--------------------------------------------------
 */
@@ -25,8 +34,8 @@ import Mainsearchproducts from "./Mainsearchproducts";
 import Mainfiltercategory from "./Mainfiltercategory";
 
 /*required import for now for the data from json 300421(1) */
-const productdata = require("../../assets/additionaldata/products.json");
-const productcategories = require("../../assets/additionaldata/categories.json");
+// const productdata = require("../../assets/additionaldata/products.json");
+// const productcategories = require("../../assets/additionaldata/categories.json");
 
 var { height, width } = Dimensions.get("window");
 
@@ -62,16 +71,43 @@ const Productmaincontainer = (props) => {
     */
 
 	useEffect(() => {
-		setMainProducts(productdata);
-		setMainProductsFiltered(productdata);
+		// setMainProducts(productdata);
+		// setMainProductsFiltered(productdata);
 		setFocusOnSearch(false);
 		/**
 		 * setProductCategories got it from productcategories
 		 */
-		setProductCategories(productcategories);
-		setProductsCategory(productdata);
+		// setProductCategories(productcategories);
+		// setProductsCategory(productdata);
 		setBadgeActive(-1);
-		setStartStateInitial(productdata);
+		// setStartStateInitial(productdata);
+
+		/**
+		|--------------------------------------------------
+		| Using axios here for the main products
+		|--------------------------------------------------
+		*/
+
+		axios.get(`${baseURL}products`).then((res) => {
+			setMainProducts(res.data);
+			setMainProductsFiltered(res.data);
+			setProductsCategory(res.data);
+			setStartStateInitial(res.data);
+		});
+
+		/**
+		|--------------------------------------------------
+		| Categories using axios
+		|--------------------------------------------------
+		*/
+		axios
+			.get(`${baseURL}categories`)
+			.then((res) => {
+				setProductCategories(res.data);
+			})
+			.catch((err) => {
+				console.log("Api error");
+			});
 
 		return () => {
 			setMainProducts([]);
@@ -128,7 +164,9 @@ const Productmaincontainer = (props) => {
     | setProductsCategory will be the initialstate all the products will be rendered
     |  startStateInitial and setBadgeActive.
     | mainproducts == products
-    | changeCtg    
+    | changeCtg
+	|
+	| we change 'mainproducts.filter((i) => i.category.$oid === ctg)' to mainproducts.filter((i) => i.category._id === ctg)
     |--------------------------------------------------
     */
 
@@ -138,7 +176,7 @@ const Productmaincontainer = (props) => {
 				? [setProductsCategory(startStateInitial), setBadgeActive(true)]
 				: [
 						setProductsCategory(
-							mainproducts.filter((i) => i.category.$oid === ctg)
+							mainproducts.filter((i) => i.category._id === ctg)
 						),
 				  ];
 			setBadgeActive(true);
@@ -156,7 +194,7 @@ const Productmaincontainer = (props) => {
 				>
 					<Icon name="ios-search" />
 					<Input
-						placeholder="search product"
+						placeholder="Enter product name"
 						/**
                     |--------------------------------------------------
                     | We will have a onfocus functionn over here
@@ -223,7 +261,7 @@ const Productmaincontainer = (props) => {
                 | changed { marginTop: 50 } in style below to styles.container
                 |--------------------------------------------------
                 */
-									style={styles.listContainer}
+									style={styles.categoryListContainer}
 								>
 									{productsCategory.map((item) => {
 										return (
@@ -241,7 +279,7 @@ const Productmaincontainer = (props) => {
 									})}
 								</View>
 							) : (
-								<View style={[styles.center, { height: height / 2 /*"40%"*/ }]}>
+								<View style={styles.errorDisplay}>
 									<Text> No products are available</Text>
 								</View>
 							)}
@@ -260,11 +298,11 @@ const Productmaincontainer = (props) => {
 */
 
 const styles = StyleSheet.create({
-	container: {
-		flexWrap: "wrap",
-		backgroundColor: "white",
-	},
-	listContainer: {
+	// container: {
+	// 	flexWrap: "wrap",
+	// 	backgroundColor: "white",
+	// },
+	categoryListContainer: {
 		// width: "100%",
 		/**
         |--------------------------------------------------
@@ -274,13 +312,14 @@ const styles = StyleSheet.create({
 		// height: height,
 		flex: 1,
 		flexDirection: "row",
-		alignItems: "flex-start",
+		alignItems: "center",
 		flexWrap: "wrap",
-		backgroundColor: "grey",
+		backgroundColor: "#969bab",
 	},
-	center: {
+	errorDisplay: {
 		justifyContent: "center",
 		alignItems: "center",
+		height: height / 2,
 	},
 });
 

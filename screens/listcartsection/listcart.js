@@ -15,6 +15,7 @@ import {
 	Body,
 	ListItem,
 	H1,
+	H2,
 } from "native-base";
 
 import Icon from "react-native-vector-icons/FontAwesome5";
@@ -63,9 +64,9 @@ const listcart = (props) => {
 	|	the 'element' was called 'cart', 'element.item.price' was 'element.product.price'
 	|--------------------------------------------------
 	*/
-	var totalprice = 0;
+	var priceCalcTotal = 0;
 	props.listCartItems.forEach((element) => {
-		return (totalprice += element.item.price);
+		return (priceCalcTotal += element.item.price);
 	});
 
 	/**
@@ -78,7 +79,9 @@ const listcart = (props) => {
 		<>
 			{props.listCartItems.length ? (
 				<Container>
-					<H1 style={{ alignSelf: "center" }}>Comparison List</H1>
+					<H2 style={styles.h2Style /*{ alignSelf: "center" }*/}>
+						Comparison List
+					</H2>
 					{/**
 					|--------------------------------------------------
 					| swipe list view used cause i needed a delete function spending time debugging it
@@ -99,7 +102,7 @@ const listcart = (props) => {
 									| Need to make changes to it later on the icon name, color and size
 									|--------------------------------------------------
 									*/}
-									<Icon name="trash" color={"white"} size={30} />
+									<Icon name="trash-alt" color={"#f5006e"} size={32} />
 								</TouchableOpacity>
 							</View>
 						)}
@@ -110,11 +113,11 @@ const listcart = (props) => {
 						*/
 
 						disableRightSwipe={true}
-						previewOpenDelay={3000}
-						friction={1000}
-						tension={40}
-						leftOpenValue={75}
-						stopLeftSwipe={75}
+						// previewOpenDelay={2000}
+						friction={2000}
+						tension={900}
+						leftOpenValue={50}
+						stopLeftSwipe={50}
 						rightOpenValue={-75}
 					/>
 
@@ -125,9 +128,9 @@ const listcart = (props) => {
 							| in the component below we will be calculating the total
 							|--------------------------------------------------
 							*/}
-							<Text style={styles.price}>£{totalprice}</Text>
+							<Text style={styles.layoutofPrice}>£{priceCalcTotal}</Text>
 						</Left>
-						<Right>
+						<Right style={styles.clrListBtn}>
 							{/**
 							|--------------------------------------------------
 							| In the clear button is where 
@@ -138,14 +141,18 @@ const listcart = (props) => {
 							|	};
 							|--------------------------------------------------
 							*/}
-							<Button title="Clear List" onPress={() => props.clearList()} />
+							<Button
+								color={"#9999cc"}
+								title="Clear List"
+								onPress={() => props.clearList()}
+							/>
 						</Right>
-						<Right>
+						{/* <Right>
 							<Button
 								title="Order"
 								onPress={() => props.navigation.navigate("Checkout")}
 							/>
-						</Right>
+						</Right> */}
 					</View>
 				</Container>
 			) : (
@@ -208,6 +215,13 @@ const styles = StyleSheet.create({
 		justifyContent: "center",
 	},
 
+	h2Style: {
+		alignSelf: "center",
+	},
+	clrListBtn: {
+		right: 20,
+	},
+
 	bottomContainer: {
 		flexDirection: "row",
 		position: "absolute",
@@ -216,10 +230,11 @@ const styles = StyleSheet.create({
 		backgroundColor: "white",
 		elevation: 20,
 	},
-	price: {
+	layoutofPrice: {
+		left: 20,
 		fontSize: 18,
 		margin: 20,
-		color: "red",
+		color: "#00ad8b",
 	},
 	hiddenContainer: {
 		flex: 1,
@@ -227,7 +242,7 @@ const styles = StyleSheet.create({
 		flexDirection: "row",
 	},
 	hiddenButton: {
-		backgroundColor: "red",
+		backgroundColor: "#ccffff",
 		justifyContent: "center",
 		alignItems: "flex-end",
 		paddingRight: 25,

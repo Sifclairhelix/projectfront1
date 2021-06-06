@@ -49,7 +49,7 @@ const Mainnavigation = () => {
 			tabBarOptions={{
 				keyboardHidesTabBar: true,
 				showLabel: true,
-				activeTintColor: "#e91e63",
+				activeTintColor: "#f2569a",
 			}}
 		>
 			<Tab.Screen
@@ -60,7 +60,7 @@ const Mainnavigation = () => {
 						<Icon
 							name="home"
 							style={{ position: "relative" }}
-							color={colour}
+							color={"#363746"}
 							size={30}
 						/>
 					),
@@ -74,14 +74,14 @@ const Mainnavigation = () => {
 						<Icon
 							name="map"
 							style={{ position: "relative" }}
-							color={colour}
+							color={"#363746"}
 							size={30}
 						/>
 					),
 				}}
 			/>
 			<Tab.Screen
-				name="List/Cart"
+				name="List"
 				component={Mainlistcartnavigation}
 				options={{
 					tabBarIcon: ({ colour }) => (
@@ -94,7 +94,7 @@ const Mainnavigation = () => {
 							<Icon
 								name="clipboard-list"
 								// style={{ position: "relative" }}
-								color={colour}
+								color={"#363746"}
 								size={30}
 							/>
 							<Listnotification />
@@ -110,26 +110,12 @@ const Mainnavigation = () => {
 						<Icon
 							name="robot"
 							style={{ position: "relative" }}
-							color={colour}
+							color={"#363746"}
 							size={30}
 						/>
 					),
 				}}
 			/>
-			{/* <Tab.Screen
-				name="Admin"
-				component={}
-				options={{
-					tabBarIcon: ({ colour }) => (
-						<Icon
-							name="cog"
-							// style={{ position: "relative" }}
-							color={colour}
-							size={30}
-						/>
-					),
-				}}
-			/> */}
 			{/* <Tab.Screen
 				name="User"
 				component={}
