@@ -2,11 +2,6 @@ import React from "react";
 import { View, Text, Dimensions } from "react-native";
 import ChatBot from "react-native-chatbot-expo";
 
-/**
-|--------------------------------------------------
-| Basically the chatbot section which needs to start working, this is going to be a lot of stress
-|--------------------------------------------------
-*/
 
 const ChatFeature = () => {
 	const steps = [
@@ -46,35 +41,14 @@ const ChatFeature = () => {
 				},
 				{ value: 2, label: "2", trigger: "7" },
 				{ value: 3, label: "3", trigger: "8" },
-				// { value: 4, label: "Back to start", trigger: "0" },
+
 			],
 		},
-		// {
-		// 	id: "1",
-		// 	trigger: "2",
-		// 	user: true,
-		// 	inputAttributes: {
-		// 		keyboardType: "email-address",
-		// 	},
-		// 	end: false,
-		// },
-		// {
-		// 	id: "2",
-		// 	options: [
-		// 		{ value: 1, label: "Number 1", trigger: "3" },
-		// 		{ value: 2, label: "Number 2", trigger: "4" },
-		// 		{ value: 3, label: "Number 3", trigger: "5" },
-		// 	],
-		// },
+
 		{
 			id: "6",
 			trigger: "9",
 			message: "Do you want it in detail?",
-			// user: true,
-			// inputAttributes: {
-			// 	keyboardType: "email-address",
-			// },
-
 			end: false,
 		},
 		{
@@ -94,19 +68,11 @@ const ChatFeature = () => {
 			id: "9",
 			trigger: "10",
 			message: "Please type your response",
-			// message: "Bye!",
-			// user: true,
-			// inputAttributes: {
-			// 	keyboardType: "email-address",
-			// },
-
 			end: false,
 		},
 		{
 			id: "10",
 			trigger: "11",
-			// message: "Do you want it in detail",
-			// message: "Bye!",
 			user: true,
 			inputAttributes: {
 				keyboardType: "email-address",
@@ -119,12 +85,6 @@ const ChatFeature = () => {
 			trigger: "12",
 			message:
 				"HomeScreen is used for finding products and adding them for comparison in the List Screen",
-			// message: "Bye!",
-			// user: true,
-			// inputAttributes: {
-			// 	keyboardType: "email-address",
-			// },
-
 			end: false,
 		},
 		{
@@ -132,32 +92,17 @@ const ChatFeature = () => {
 			trigger: "13",
 			message:
 				"The Map screen is for identifying locations of stores close to you ",
-			// message: "Bye!",
-			// user: true,
-			// inputAttributes: {
-			// 	keyboardType: "email-address",
-			// },
-
 			end: false,
 		},
 		{
 			id: "13",
 			trigger: "14",
 			message: "What else can i help you with? ",
-			// message: "Bye!",
-			// user: true,
-			// inputAttributes: {
-			// 	keyboardType: "email-address",
-			// },
-
 			end: false,
 		},
 		{
 			id: "14",
 			trigger: "1",
-			// message:
-			// 	"What else can i help you with? ",
-			// message: "Bye!",
 			user: true,
 			inputAttributes: {
 				keyboardType: "email-address",
@@ -169,12 +114,6 @@ const ChatFeature = () => {
 			id: "15",
 			trigger: "16",
 			message: "The features included in this Application are products: ",
-			// message: "Bye!",
-			// user: true,
-			// inputAttributes: {
-			// 	keyboardType: "email-address",
-			// },
-
 			end: false,
 		},
 		{
@@ -182,12 +121,6 @@ const ChatFeature = () => {
 			trigger: "17",
 			message:
 				"Getting products from different supermarkets, soritng by categories, using Google maps to find store, routing to stores, comaprison list",
-			// message: "Bye!",
-			// user: true,
-			// inputAttributes: {
-			// 	keyboardType: "email-address",
-			// },
-
 			end: false,
 		},
 		{
@@ -195,31 +128,17 @@ const ChatFeature = () => {
 			trigger: "18",
 			message:
 				"features are going to be added in future version of the application",
-			// message: "Bye!",
-			// user: true,
-			// inputAttributes: {
-			// 	keyboardType: "email-address",
-			// },
-
 			end: false,
 		},
 		{
 			id: "18",
 			trigger: "19",
 			message: "Is there anything else you want to find out about? ",
-			// message: "Bye!",
-			// user: true,
-			// inputAttributes: {
-			// 	keyboardType: "email-address",
-			// },
-
 			end: false,
 		},
 		{
 			id: "19",
 			trigger: "1",
-			// message: "Is there anything else you want to find out about? ",
-			// message: "Bye!",
 			user: true,
 			inputAttributes: {
 				keyboardType: "email-address",
@@ -236,8 +155,6 @@ const ChatFeature = () => {
 		{
 			id: "21",
 			trigger: "1",
-			// message: "Is there anything else you want to find out about? ",
-			// message: "Bye!",
 			user: true,
 			inputAttributes: {
 				keyboardType: "email-address",
