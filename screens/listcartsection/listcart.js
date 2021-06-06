@@ -26,54 +26,17 @@ import Icon from "react-native-vector-icons/FontAwesome5";
 |--------------------------------------------------
 */
 import { SwipeListView } from "react-native-swipe-list-view";
-
-/**
-|--------------------------------------------------
-| we need to connect to out stores
-|--------------------------------------------------
-*/
-
 import { connect } from "react-redux";
 import * as actions from "../../src/actions/listcartactions";
-
-/**
-|--------------------------------------------------
-| Need to import Listcartitem cause it has the rendering for the items in list, that stuff is kinda confusing 
-|--------------------------------------------------
-*/
-
 import Listcartitem from "../listcartsection/Listcartitem";
 
 var { width, height } = Dimensions.get("window");
 
-/**
-|--------------------------------------------------
-| Maybe the data in line 41 can be changed
-| data.product.image should be data.item.image cause instead of product i put item somewhere
-|--------------------------------------------------
-*/
-
 const listcart = (props) => {
-	/**
-	|--------------------------------------------------
-	| Method for calculating the total value
-	|			var totalprice = 0;
-	|		props.listCartItems.forEach((element) => {
-	|			return (totalprice += element.item.price);
-	|		});
-	|	the 'element' was called 'cart', 'element.item.price' was 'element.product.price'
-	|--------------------------------------------------
-	*/
 	var priceCalcTotal = 0;
 	props.listCartItems.forEach((element) => {
 		return (priceCalcTotal += element.item.price);
 	});
-
-	/**
-							|--------------------------------------------------
-							| This is where the former listItem section was but Listcartitem new bit will be added
-							|--------------------------------------------------
-							*/
 
 	return (
 		<>
@@ -82,12 +45,6 @@ const listcart = (props) => {
 					<H2 style={styles.h2Style /*{ alignSelf: "center" }*/}>
 						Comparison List
 					</H2>
-					{/**
-					|--------------------------------------------------
-					| swipe list view used cause i needed a delete function spending time debugging it
-					| there was issue where instead of this 'renderItem={(data) => <Listcartitem item={data} />}' i had renderItem={(data) => {<Listcartitem item={data} />}}
-					|--------------------------------------------------
-					*/}
 					<SwipeListView
 						data={props.listCartItems}
 						renderItem={(data) => <Listcartitem item={data} />}
@@ -97,20 +54,10 @@ const listcart = (props) => {
 									style={styles.hiddenButton}
 									onPress={() => props.removeList(data.item)}
 								>
-									{/**
-									|--------------------------------------------------
-									| Need to make changes to it later on the icon name, color and size
-									|--------------------------------------------------
-									*/}
 									<Icon name="trash-alt" color={"#f5006e"} size={32} />
 								</TouchableOpacity>
 							</View>
 						)}
-						/**
-						|--------------------------------------------------
-						| edit the changes below later or removed some of the features 
-						|--------------------------------------------------
-						*/
 
 						disableRightSwipe={true}
 						// previewOpenDelay={2000}
@@ -123,36 +70,16 @@ const listcart = (props) => {
 
 					<View style={styles.bottomContainer}>
 						<Left>
-							{/**
-							|--------------------------------------------------
-							| in the component below we will be calculating the total
-							|--------------------------------------------------
-							*/}
+
 							<Text style={styles.layoutofPrice}>£{priceCalcTotal}</Text>
 						</Left>
 						<Right style={styles.clrListBtn}>
-							{/**
-							|--------------------------------------------------
-							| In the clear button is where 
-							| const mapDispatchToProps = (dispatch) => {
-							|		return {
-							|			clearList: () => dispatch(actions.clearList),
-							|		};
-							|	};
-							|--------------------------------------------------
-							*/}
 							<Button
 								color={"#9999cc"}
 								title="Clear List"
 								onPress={() => props.clearList()}
 							/>
 						</Right>
-						{/* <Right>
-							<Button
-								title="Order"
-								onPress={() => props.navigation.navigate("Checkout")}
-							/>
-						</Right> */}
 					</View>
 				</Container>
 			) : (
@@ -165,22 +92,6 @@ const listcart = (props) => {
 	);
 };
 
-/**
-|--------------------------------------------------
-| Method for adding and removing items from list
-|   const listCartItems = (state = [], action) => {
-|        switch (action.type) {
-|            case ADD_T_CART:
-
-    const reducers = combineReducers({
-	listCartItems: listCartItems,
-|--------------------------------------------------
-*/
-
-/**
- * Added on 010421(1)
- */
-
 const mapStateToProps = (state) => {
 	const { listCartItems } = state;
 	return {
@@ -188,11 +99,7 @@ const mapStateToProps = (state) => {
 	};
 };
 
-/**
-|--------------------------------------------------
-| This is to clear items from list and also contains the remove function
-|--------------------------------------------------
-*/
+
 
 const mapDispatchToProps = (dispatch) => {
 	return {
@@ -201,12 +108,6 @@ const mapDispatchToProps = (dispatch) => {
 	};
 };
 
-/**
-|--------------------------------------------------
-| Enter stylesheet to for the page
-| emptyContainer must be changed other stuff must be also changed 010421
-|--------------------------------------------------
-*/
 
 const styles = StyleSheet.create({
 	emptyContainer: {
