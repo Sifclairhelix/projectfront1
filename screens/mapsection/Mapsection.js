@@ -12,7 +12,7 @@ import Constants from "expo-constants";
 import * as Location from "expo-location";
 import * as Permissions from "expo-permissions";
 
-//AIzaSyDJlQXjbp3lMeIn4N05YusxJGYJx-CyrKo
+//Google Maps Api key removed cause of costs
 
 const GOOGLE_MAPS_APIKEY = "";
 const origin = { latitude: 51.5611385, longitude: -0.2747318 };
@@ -28,11 +28,6 @@ const destination1 = {
 
 CustomMap = require("../../assets/placeholder.png");
 
-/**
-|--------------------------------------------------
-| Import map direction so that user can use
-|--------------------------------------------------
-*/
 import MapViewDirections from "react-native-maps-directions";
 
 const Mapsection = () => {
@@ -229,11 +224,6 @@ const Mapsection = () => {
 	);
 };
 
-/**
-|--------------------------------------------------
-| This section hold the styling for the project 
-|--------------------------------------------------
-*/
 
 const styles = StyleSheet.create({
 	container: {
@@ -246,9 +236,7 @@ const styles = StyleSheet.create({
 		width: Dimensions.get("window").width,
 		height: Dimensions.get("window").height,
 	},
-	// markerColor: {
-	// 	color: "blue",
-	// },
+
 });
 
 export default Mapsection;
