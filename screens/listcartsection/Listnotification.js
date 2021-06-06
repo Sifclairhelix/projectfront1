@@ -21,17 +21,6 @@ const Listnotification = (props) => {
 	);
 };
 
-/**
-|--------------------------------------------------
-| Method for adding and removing items from list
-|   const listCartItems = (state = [], action) => {
-|        switch (action.type) {
-|            case ADD_T_CART:
-
-    const reducers = combineReducers({
-	listCartItems: listCartItems,
-|--------------------------------------------------
-*/
 
 const mapStateToProps = (state) => {
 	const { listCartItems } = state;
