@@ -9,25 +9,17 @@ import { View, StyleSheet, SafeAreaView, Image } from "react-native";
 const Topheader = () => {
 	return (
 		<SafeAreaView style={styles.logoHeader}>
-			{/* <Text>Top header section</Text> */}
-			<Image /**
-            |--------------------------------------------------
-            | required for the image import at the top
-            |--------------------------------------------------
-            */
+			
+			<Image 
 				source={require("../../assets/imageicons/logo.png")}
 				resizeMode="cover"
-				style={styles.imageSize /*{ height: 50 }*/}
+				style={styles.imageSize }
 			/>
 		</SafeAreaView>
 	);
 };
 
-/**
-|--------------------------------------------------
-| Got to change the stylesheet late pretty important
-|--------------------------------------------------
-*/
+
 
 const styles = StyleSheet.create({
 	logoHeader: {
