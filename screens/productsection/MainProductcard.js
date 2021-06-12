@@ -41,7 +41,7 @@ const MainProductcard = (props) => {
 
 	return (
 		<View style={styles.homeScreenProContainer}>
-			{/* <Text>Main Product Card</Text> */}
+			
 			<Image
 				/**
                 |--------------------------------------------------
@@ -95,24 +95,7 @@ const MainProductcard = (props) => {
 | function goes to button above line 76	
 |--------------------------------------------------
 */
-/**
-|--------------------------------------------------
-| In the
-|		addItemToList: (item) => { and should 'product' be passed into it
-|					dispatch(actions.addToList({ quantity: 1, item })); should 'item' be 'product' i am not sure
-|--------------------------------------------------
-*/
 
-/**
-|--------------------------------------------------
-| const mapToDispatchToProps = (dispatch) => {
-|		return {
-|			addItemToCart: (product) => 
-|				dispatch(actions.addToCart({quantity: 1, product}))
-|		}
-|	}
-|--------------------------------------------------
-*/
 
 const mapDispatchToProps = (dispatch) => {
 	return {
@@ -175,4 +158,4 @@ const styles = StyleSheet.create({
 
 export default connect(null, mapDispatchToProps)(MainProductcard);
 
-//MainProductcard;
+
