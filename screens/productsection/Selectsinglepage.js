@@ -9,45 +9,26 @@ import {
 } from "react-native";
 import { Container, H1, Right, Left, Body } from "native-base";
 
-/**
-|--------------------------------------------------
-| Import redux from store
-|--------------------------------------------------
-*/
+
 import { connect } from "react-redux";
 import * as actions from "../../src/actions/listcartactions";
 
-/**
-|--------------------------------------------------
-| This is for rendering the single items which will be passed from MainProductContainer 
-|--------------------------------------------------
-*/
+
 
 const Selectsinglepage = (props) => {
-	/**
-	 * UseState section
-	 */
+	
 
 	const [itemId, setItemId] = useState(props.route.params.item);
-	/**
-	|--------------------------------------------------
-	| CheckAvaiable might not be necssary
-	|--------------------------------------------------
-	*/
-	// const [checkAvailable, setCheckAvailable] = useState(null);
+	
 
 	return (
 		<Container style={styles.mainContainer}>
 			<ScrollView
-				style={styles.scrlViewStyling /*{ marginBottom: 80, padding: 5 }*/}
+				style={styles.scrlViewStyling }
 			>
 				<View>
 					<Image
-						/**
-                        |--------------------------------------------------
-                        | itemId gets passed for all of them causes for example should be itemId.name, itemId.image, etc.
-                        |--------------------------------------------------
-                        */
+						
 						source={{
 							uri: itemId.image
 								? itemId.image
@@ -62,11 +43,7 @@ const Selectsinglepage = (props) => {
 					<H1 style={styles.mainContentHeader}>{itemId.name}</H1>
 					<Text style={styles.mainContentText}>{itemId.brand}</Text>
 				</View>
-				{/**
-                |--------------------------------------------------
-                | Important we need to add additional stuff and have to change a lot of stuff on this page
-                |--------------------------------------------------
-                */}
+				
 				<Left>
 					<Text>Description:</Text>
 				</Left>
@@ -92,30 +69,7 @@ const Selectsinglepage = (props) => {
 	);
 };
 
-/**
-|--------------------------------------------------
-| Section for redux function to add the item
-| passing functionality to button in line 70  
-|--------------------------------------------------
-*/
-/**
-|--------------------------------------------------
-| In the
-|		addItemToList: (item) => { and should 'product' be passed into it
-|					dispatch(actions.addToList({ quantity: 1, item })); should 'item' be 'product' i am not sure
-|--------------------------------------------------
-*/
 
-/**
-|--------------------------------------------------
-| const mapToDispatchToProps = (dispatch) => {
-|		return {
-|			addItemToCart: (product) => 
-|				dispatch(actions.addToCart({quantity: 1, product}))
-|		}
-|	}
-|--------------------------------------------------
-*/
 
 const mapDispatchToProps = (dispatch) => {
 	return {
@@ -125,11 +79,7 @@ const mapDispatchToProps = (dispatch) => {
 	};
 };
 
-/**
-|--------------------------------------------------
-| Change the style sheet later which has been created
-|--------------------------------------------------
-*/
+
 
 const styles = StyleSheet.create({
 	mainContainer: {
