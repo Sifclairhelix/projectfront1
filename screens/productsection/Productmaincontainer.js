@@ -33,9 +33,7 @@ import Productmainlist from "./Productmainlist";
 import Mainsearchproducts from "./Mainsearchproducts";
 import Mainfiltercategory from "./Mainfiltercategory";
 
-/*required import for now for the data from json 300421(1) */
-// const productdata = require("../../assets/additionaldata/products.json");
-// const productcategories = require("../../assets/additionaldata/categories.json");
+
 
 var { height, width } = Dimensions.get("window");
 
@@ -158,17 +156,7 @@ const Productmaincontainer = (props) => {
 
 	// console.log(mainproducts);
 
-	/**
-    |--------------------------------------------------
-    | Filter by category
-    | setProductsCategory will be the initialstate all the products will be rendered
-    |  startStateInitial and setBadgeActive.
-    | mainproducts == products
-    | changeCtg
-	|
-	| we change 'mainproducts.filter((i) => i.category.$oid === ctg)' to mainproducts.filter((i) => i.category._id === ctg)
-    |--------------------------------------------------
-    */
+	
 
 	const changeCategory = (ctg) => {
 		{
@@ -291,25 +279,12 @@ const Productmaincontainer = (props) => {
 	);
 };
 
-/**
-|--------------------------------------------------
-| Need to change stylesheet later
-|--------------------------------------------------
-*/
+
 
 const styles = StyleSheet.create({
-	// container: {
-	// 	flexWrap: "wrap",
-	// 	backgroundColor: "white",
-	// },
+	
 	categoryListContainer: {
-		// width: "100%",
-		/**
-        |--------------------------------------------------
-        | the height: height caused a bunch of issues it didnt display all the items made it stick to 6
-        |--------------------------------------------------
-        */
-		// height: height,
+		
 		flex: 1,
 		flexDirection: "row",
 		alignItems: "center",
